@@ -1,0 +1,49 @@
+{
+  "window": {
+    "start": 1000000,
+    "end": 1360000
+  },
+  "versions": [
+    { "id": "v1", "target": 0.01, "effectiveAt": 1000000 },
+    { "id": "v2", "target": 0.02, "effectiveAt": 1180000 }
+  ],
+  "points": [
+    { "id": "p0", "start": 1000000, "end": 1060000, "requests": 1000, "errors": 100, "versionId": "v1" },
+    { "id": "p1", "start": 1060000, "end": 1120000, "requests": 1000, "errors": 100, "versionId": "v1" },
+    { "id": "p2", "start": 1120000, "end": 1180000, "requests": 1000, "errors": 1, "versionId": "v1" },
+    { "id": "p3", "start": 1180000, "end": 1240000, "requests": 1000, "errors": 5, "versionId": "v2" },
+    { "id": "p4", "start": 1240000, "end": 1300000, "requests": 1000, "errors": 5, "versionId": "v2" },
+    { "id": "p5", "start": 1300000, "end": 1360000, "requests": 1000, "errors": 5, "versionId": "v2" }
+  ],
+  "backfills": [
+    {
+      "id": "bf-1",
+      "start": 1120000,
+      "end": 1180000,
+      "arrivedAt": 1150000,
+      "requests": 1000,
+      "errors": 120,
+      "versionId": "v1"
+    }
+  ],
+  "rules": [
+    {
+      "id": "rule-v1-fast",
+      "versionId": "v1",
+      "burnRateThreshold": 2,
+      "lookbackMs": 120000,
+      "effectiveAt": 1000000,
+      "expiresAt": 1300000
+    },
+    {
+      "id": "rule-v2-fast",
+      "versionId": "v2",
+      "burnRateThreshold": 2,
+      "lookbackMs": 120000,
+      "effectiveAt": 1180000
+    }
+  ],
+  "silences": [
+    { "id": "silence-1", "start": 1060000, "end": 1120000, "ruleId": null }
+  ]
+}

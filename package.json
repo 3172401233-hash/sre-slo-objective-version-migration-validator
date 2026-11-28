@@ -1,0 +1,13 @@
+{
+  "name": "slo-version-budget-replay",
+  "version": "1.0.0",
+  "description": "版本化 SLO 预算计算器与告警状态离线回放器",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=24.16.0"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
